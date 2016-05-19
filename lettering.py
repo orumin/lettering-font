@@ -13,7 +13,6 @@ oradano_mincho_path = "./oradano_mincho/Oradano2016-0427t"
 # Lettering を生成するディレクトリのパス
 # 同じディレクトリに一時ファイルも生成される
 lettering_path = "./"
-sfd_path = "./"
 
 # フォントリスト
 # SpecialElite ファイル名, Oradano明朝 ファイル名, Lettering ウェイト
@@ -33,8 +32,7 @@ def main():
         se_path = "{0}/{1}".format(special_elite_path, se)
         om_path = "{0}/{1}".format(oradano_mincho_path, om)
         le_path = "{0}/Lettering-{1}.ttf".format(lettering_path, weight)
-        sf_path = "{0}/Lettering-{1}".format(sfd_path, weight)
-        generate_lettering(se_path, om_path, le_path, sf_path, weight, version)
+        generate_lettering(se_path, om_path, le_path, weight, version)
 
 def lettering_sfnt_names(weight, version):
     return (
@@ -64,7 +62,7 @@ def lettering_gasp():
         (65535, ('gridfit', 'antialias', 'symmetric-smoothing', 'gridfit+smoothing')),
     )
 
-def generate_lettering(se_path, om_path, le_path, sf_path, weight, version):
+def generate_lettering(se_path, om_path, le_path, weight, version):
     # Oradana明朝 を開く
     font = fontforge.open(om_path)
 
